@@ -4,59 +4,65 @@ public class Problem003
 {
     public static void main(String[] args)
     {
-        ArrayList<Integer> factors = factorsOf(13195);
-        ArrayList<Integer> primes = returnPrimes(factors);
-        for (Integer prime : primes)
+        ArrayList<Long> factors = factorsOf(600851475143L);
+        ArrayList<Long> primes = returnPrimes(factors);
+        for (Long prime : primes)
         {
             System.out.println(prime);
         }
     }
 
-    public static ArrayList<Integer> factorsOf(int number)
+    public static ArrayList<Long> factorsOf(long number)
     {
-        ArrayList<Integer> factors = new ArrayList<>();
+        ArrayList<Long> factors = new ArrayList<>();
         factors.add(number);
 
-        for (int i = 1; i <= (number / 2); i++)
+        for (int i = 1; i < number; i++)
         {
-            if (number % i == 0)
+            if (i != 0)
             {
-                factors.add(i);
+                if (number % i == 0)
+                {
+                    factors.add((long) i);
+                }
             }
-        }
 
+        }
         return factors;
     }
 
     // takes an arraylist of integers and returns only the *ones not divisible by 2*
-    public static ArrayList<Integer> returnPrimes(ArrayList<Integer> numsList)
+    public static ArrayList<Long> returnPrimes(ArrayList<Long> numsList)
     {
-        ArrayList<Integer> primeNumbers = new ArrayList<>();
+        ArrayList<Long> primeNumbers = new ArrayList<>();
 
-        for (Integer i : numsList)
+        for (Long i : numsList)
         {
-            if (i % 2 != 0)
+            if (isPrime(i))
             {
-                primeNumbers.add(i);
+                primeNumbers.add((long)i);
             }
         }
-
         return primeNumbers;
     }
 
     // checks if num is prime
-    public boolean isPrime(int x)
+    public static boolean isPrime(long x)
     {
-        int a = 3;
-        double power = Math.pow(a, x);
-
-        if (2 <= (x - 1))
+        if (x <= 1)
         {
-            power(Math.ceilMod(x))
+            return false;
         }
+
+        for (int i = 2; i < x; i++)
+        {
+            if (x % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
-
-
 }
 
 
