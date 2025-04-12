@@ -4,30 +4,33 @@ public class Problem003
 {
     public static void main(String[] args)
     {
-        ArrayList<Long> factors = factorsOf(600851475143L);
+        ArrayList<Long> factors = factorsOf(6008514751433235L);
         ArrayList<Long> primes = returnPrimes(factors);
-        for (Long prime : primes)
+        for (Long number : primes)
         {
-            System.out.println(prime);
+            System.out.println(number);
         }
     }
 
-    public static ArrayList<Long> factorsOf(long number)
+    public static ArrayList<Long> factorsOf(long n)
     {
         ArrayList<Long> factors = new ArrayList<>();
-        factors.add(number);
+        factors.add(1L);
+        factors.add(n);
 
-        for (int i = 1; i < number; i++)
+        long s = (int) Math.floor(Math.sqrt(n));
+
+        for (int i = 2; i < s; i++)
         {
-            if (i != 0)
+            if (n % i == 0)
             {
-                if (number % i == 0)
-                {
-                    factors.add((long) i);
-                }
-            }
+                factors.add((long) i);
 
+                long x = n / i;
+                factors.add(x);
+            }
         }
+
         return factors;
     }
 
@@ -49,12 +52,14 @@ public class Problem003
     // checks if num is prime
     public static boolean isPrime(long x)
     {
+        double s = Math.sqrt(x);
+
         if (x <= 1)
         {
             return false;
         }
 
-        for (int i = 2; i < x; i++)
+        for (int i = 2; i <= s; i++)
         {
             if (x % i == 0)
             {
