@@ -10,13 +10,9 @@ public class Problem004
             {
                 int currentNum = i * j;
 
-                if (isPalindrome(currentNum))
+                if (isPalindrome(currentNum) && currentNum > largestPalindrome)
                 {
-                    if (currentNum > largestPalindrome)
-                    {
-                        largestPalindrome = currentNum;
-                    }
-
+                    largestPalindrome = currentNum;
                 }
             }
         }
