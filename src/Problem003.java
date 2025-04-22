@@ -52,14 +52,14 @@ public class Problem003
     // checks if num is prime
     public static boolean isPrime(long x)
     {
-        double s = Math.sqrt(x);
+        long s = (long) Math.sqrt(x);
 
         if (x <= 1)
         {
             return false;
         }
 
-        for (int i = 2; i <= s; i++)
+        for (long i = 2; i <= s; i++)
         {
             if (x % i == 0)
             {
