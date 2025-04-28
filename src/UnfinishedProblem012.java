@@ -1,4 +1,4 @@
-public class Problem012 {
+public class UnfinishedProblem012 {
 //    public static int nthTriangleNumber(int n) {
 //        int triangleNumber = 0;
 //
@@ -18,6 +18,8 @@ public class Problem012 {
 
             }
         }
+
+        return 0;
     }
 
 
